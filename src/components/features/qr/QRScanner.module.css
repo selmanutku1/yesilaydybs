@@ -1,0 +1,71 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(8px);
+}
+
+.container {
+  background-color: white;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 450px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0;
+}
+
+.closeBtn {
+  color: #718096;
+  padding: 0.5rem;
+}
+
+.reader {
+  width: 100% !important;
+  border: none !important;
+}
+
+.hint {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+/* Customizing html5-qrcode UI */
+:global(#reader__dashboard_section_csr button) {
+  background-color: var(--primary) !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+}
+
+:global(#reader__status_span) {
+    display: none !important;
+}

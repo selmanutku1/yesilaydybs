@@ -1,0 +1,109 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  STAFF
+  VIEWER
+}
+
+enum AssetStatus {
+  ACTIVE
+  ASSIGNED
+  BROKEN
+  SCRAP
+}
+
+enum RequestStatus {
+  PENDING
+  IN_PROGRESS
+  FIXED
+  REJECTED
+}
+
+model User {
+  id            String       @id @default(cuid())
+  name          String?
+  email         String?      @unique
+  password      String
+  role          Role         @default(VIEWER)
+  assignments   Assignment[]
+  requests      MaintenanceRequest[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model Asset {
+  id            String       @id @default(cuid())
+  qrId          String       @unique @default(uuid())
+  name          String
+  brand         String?
+  model         String?
+  serialNumber  String?      @unique
+  description   String?
+  imageUrl      String?
+  status        AssetStatus  @default(ACTIVE)
+  purchaseDate  DateTime?
+  warrantyDate  DateTime?
+  categoryId    String?
+  category      Category?    @relation(fields: [categoryId], references: [id])
+  locationId    String?
+  location      Location?    @relation(fields: [locationId], references: [id])
+  assignments   Assignment[]
+  requests      MaintenanceRequest[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model Category {
+  id            String       @id @default(cuid())
+  name          String       @unique
+  parentId      String?
+  parent        Category?    @relation("SubCategories", fields: [parentId], references: [id])
+  children      Category[]   @relation("SubCategories")
+  assets        Asset[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model Location {
+  id            String       @id @default(cuid())
+  building      String
+  floor         String?
+  room          String?
+  assets        Asset[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  @@unique([building, floor, room])
+}
+
+model Assignment {
+  id            String       @id @default(cuid())
+  assetId       String
+  asset         Asset        @relation(fields: [assetId], references: [id])
+  userId        String
+  user          User         @relation(fields: [userId], references: [id])
+  assignedAt    DateTime     @default(now())
+  returnedAt    DateTime?
+  notes         String?
+}
+
+model MaintenanceRequest {
+  id            String       @id @default(cuid())
+  assetId       String
+  asset         Asset        @relation(fields: [assetId], references: [id])
+  userId        String
+  user          User         @relation(fields: [userId], references: [id])
+  description   String
+  status        RequestStatus @default(PENDING)
+  notes         String?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}

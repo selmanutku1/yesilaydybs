@@ -1,0 +1,133 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background-color: var(--card);
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin: 0;
+}
+
+.closeBtn {
+  color: var(--muted);
+}
+
+.content {
+  padding: 1.5rem;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+}
+
+.formField {
+  margin-bottom: 1.25rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.select, .textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background-color: var(--background);
+  font-size: 1rem;
+}
+
+.textarea {
+    min-height: 100px;
+    resize: none;
+}
+
+.priorityGroup {
+    margin-bottom: 2rem;
+}
+
+.priorityOptions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.priorityBtn {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--muted);
+    background-color: white;
+}
+
+.activePriority {
+    border-color: var(--primary);
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+.footer {
+  padding: 1.5rem;
+  background-color: var(--background);
+}
+
+.submitBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem !important;
+}
+
+@media (min-width: 640px) {
+    .overlay {
+        align-items: center;
+    }
+    .modal {
+        border-radius: 20px;
+    }
+}

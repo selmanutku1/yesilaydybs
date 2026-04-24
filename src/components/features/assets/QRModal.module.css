@@ -1,0 +1,89 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background-color: var(--card);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin: 0;
+}
+
+.closeBtn {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.closeBtn:hover {
+  color: var(--error);
+}
+
+.content {
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.assetName {
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+}
+
+.qrWrapper {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.qrImage {
+  width: 200px;
+  height: 200px;
+  display: block;
+}
+
+.instruction {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.footer {
+  padding: 1rem 1.5rem;
+  background-color: var(--background);
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footerBtn {
+  flex: 1;
+}

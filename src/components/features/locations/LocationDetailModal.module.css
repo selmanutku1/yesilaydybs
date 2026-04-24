@@ -1,0 +1,151 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background-color: var(--card);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: sticky;
+  top: 0;
+  background-color: var(--card);
+  z-index: 10;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin: 0 0 0.25rem 0;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.closeBtn {
+  color: var(--muted);
+}
+
+.content {
+  padding: 1.5rem;
+}
+
+.stats {
+    margin-bottom: 2rem;
+}
+
+.statCard {
+    background-color: var(--primary-light);
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(0, 122, 51, 0.1);
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.statLabel {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.assetListHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.sectionTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.assetList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.assetItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background-color: var(--background);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+.assetIcon {
+    color: var(--primary);
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.assetInfo {
+    flex: 1;
+}
+
+.assetName {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.assetCategory {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin: 0;
+}
+
+.statusBadge {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--primary);
+    background-color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--primary-light);
+}
+
+.footer {
+  padding: 1rem 1.5rem;
+  background-color: var(--background);
+  display: flex;
+  justify-content: flex-end;
+}
