@@ -7,9 +7,12 @@ import { Settings, User, Bell, Shield, Key, Database, RefreshCw, ExternalLink, C
 import { Input } from '@/components/ui/Input';
 import styles from './Settings.module.css';
 
+import { AddUserModal } from '@/components/features/settings/AddUserModal';
+
 export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState('profile');
   const [isSyncing, setIsSyncing] = useState(false);
+  const [isAddUserModalOpen, setIsAddUserModalOpen] = useState(false);
 
   const handleSync = () => {
     setIsSyncing(true);
@@ -133,7 +136,7 @@ export default function SettingsPage() {
               <div className="fade-in">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
                     <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Kullanıcı Yönetimi</h3>
-                    <Button size="sm"><Plus size={16} /> Yeni Kullanıcı</Button>
+                    <Button size="sm" onClick={() => setIsAddUserModalOpen(true)}><Plus size={16} /> Yeni Kullanıcı</Button>
                 </div>
 
                 <div className="card" style={{ padding: 0, overflow: 'hidden', border: '1px solid var(--border)' }}>
@@ -207,6 +210,11 @@ export default function SettingsPage() {
             )}
           </div>
         </div>
+
+        <AddUserModal 
+             isOpen={isAddUserModalOpen}
+             onClose={() => setIsAddUserModalOpen(false)}
+        />
       </div>
     </DashboardLayout>
   );
